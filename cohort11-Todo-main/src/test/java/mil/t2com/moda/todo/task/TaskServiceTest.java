@@ -39,8 +39,8 @@ class TaskServiceTest {
 
         // Assert
         assertThat(result.getId()).isEqualTo(1L);
-        assertThat(result.getTitle()).isEqualTo("Learn about MOCKS");
-        assertThat(result.getCategory()).isEqualTo("label");
+        assertThat(result.getTitle()).isEqualTo("Learn about Mocks");
+        assertThat(result.getCategory().getLabel()).isEqualTo("important");
 
         verify(taskRepository, only()).save(newTask);
     }

@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(TaskControllerTest.class)
+@WebMvcTest(TaskController.class)
 class TaskControllerTest {
 
     @Autowired
@@ -54,7 +54,7 @@ class TaskControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.title").value(matchesPattern("Learn about.*request/response")))
                 .andExpect(jsonPath("$.description").value(containsString("Learn how to")))
-                .andExpect(jsonPath("$.category.label").value("immediate"))
+                .andExpect(jsonPath("$.category.label").value("important"))
                 .andDo(print()
                 );
 
@@ -82,12 +82,12 @@ class TaskControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.title").value(matchesPattern("Learn about.*request/response")))
                 .andExpect(jsonPath("$.description").value(containsString("Learn how to")))
-                .andExpect(jsonPath("$.category.label").value("immediate"))
+                .andExpect(jsonPath("$.category.label").value("enablement"))
                 .andDo(print()
                 );
 
         // Assert
-        verify(taskService, only()).saveTask(captor.capture());
+        verify(taskService,only()).saveTask(captor.capture());
         assertThat(captor.getValue()).usingRecursiveComparison().isEqualTo(newTask);
 
         verify(taskService, only()).saveTask(any(Task.class));

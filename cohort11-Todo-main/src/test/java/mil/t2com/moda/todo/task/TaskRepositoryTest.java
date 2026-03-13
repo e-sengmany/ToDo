@@ -27,10 +27,10 @@ class TaskRepositoryTest {
         Optional<Task> result = taskRepository.findById(savedNewTask.getId());
 
         // Assert
-        assertEquals("Learn tdd", result.get().getTitle());
+        assertEquals("Learn TDD", result.get().getTitle());
         assertThat(result.get().getDescription()).isEqualTo(newTask.getDescription());
         // Add category value test
-        assertThat(result.get().getCategory().getLabel()).isEqualTo(newTask.getCategory());
+        assertThat(result.get().getCategory().getLabel()).isEqualTo("important");
         assertThat(result.get()).isEqualTo(newTask);
     }
 }
