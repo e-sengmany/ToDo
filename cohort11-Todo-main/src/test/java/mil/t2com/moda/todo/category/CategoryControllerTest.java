@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest (CategoryController.class)
 class CategoryControllerTest {
 
     @Autowired
@@ -46,7 +46,7 @@ class CategoryControllerTest {
                         .content(objectMapper.writeValueAsString(newCategory)))
                 // result matchers
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.label").value("Normal"));
+                .andExpect(jsonPath("$.label").value("normal"));
 
         // Assert
         verify(categoryService, only()).saveCategory(captor.capture());

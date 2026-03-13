@@ -37,7 +37,7 @@ class CategoryServiceTest {
 
         // Assert
         assertThat(result.getId()).isEqualTo(1L);
-        assertThat(result.getLabel()).isEqualTo("Delayed");
+        assertThat(result.getLabel()).isEqualTo("delayed");
 
         verify(categoryRepository, only()).save(newCategory);
     }

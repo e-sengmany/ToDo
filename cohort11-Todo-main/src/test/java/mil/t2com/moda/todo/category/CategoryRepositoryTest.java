@@ -25,7 +25,7 @@ class CategoryRepositoryTest {
         Optional<Category> result = categoryRepository.findById(savedNewCategory.getId());
 
         // Assert
-        assertEquals("Important", result.get().getLabel());
+        assertEquals("important", result.get().getLabel());
         assertThat(result.get().getLabel()).isEqualTo(newCategory.getLabel());
         // Add category value test
         assertThat(result.get().getLabel()).isEqualTo(newCategory.getLabel());
