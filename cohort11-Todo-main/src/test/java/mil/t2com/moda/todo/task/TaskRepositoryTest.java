@@ -33,4 +33,5 @@ class TaskRepositoryTest {
         assertThat(result.get().getCategory().getLabel()).isEqualTo("important");
         assertThat(result.get()).isEqualTo(newTask);
     }
+    void shouldGetAllTasks(){}
 }

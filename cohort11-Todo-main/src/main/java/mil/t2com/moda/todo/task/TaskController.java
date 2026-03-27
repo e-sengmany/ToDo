@@ -29,11 +29,13 @@ public class TaskController {
 //    }
 
     @GetMapping()
-    public List<Task> findAllTasks() { return taskService.findAllTasks(); }
+    public List<Task> findAllTasks() { return taskService.getAllTasks(); }
 
     // ADD with Tests for: GetById, Put, Delete
 
     // Example
     //@GetMapping("/{taskId}")
+    public Task getById (Long id){
 
+    }
 }
